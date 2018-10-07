@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nomecity: MyString
+  created_at: 2018-09-30 18:00:23
+  updated_at: 2018-09-30 18:00:23
+
+two:
+  nomecity: MyString
+  created_at: 2018-09-30 18:00:23
+  updated_at: 2018-09-30 18:00:23

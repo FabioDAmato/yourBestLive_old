@@ -1,0 +1,12 @@
+<%= form_for @citta, url:{action: "create"} do |f| %>
+	<p>
+		<%= f.label "Nome città:" %>
+		<%= f.text_field :nomecity %>
+	</p>
+	<p>
+		<%= f.label :image %>
+		<%= f.file_field :image %>
+	</p>
+
+    <%= f.submit  %>
+<% end %>

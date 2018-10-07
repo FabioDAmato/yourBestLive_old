@@ -1,0 +1,2 @@
+module VicinoHelper
+end

@@ -1,0 +1,115 @@
+<%= form_for @locale, url:{action: "create"}, :html=> {:id => 'form'} do |f| %>
+	<p>
+		<%= f.label :nlocale %>
+		<%= f.text_field :nlocale , :id => "nl" %>
+	</p>
+	<p>
+		<%= f.label :indirizzo %>
+		<%= f.text_field :indirizzo , :id => "i"%>
+	</p>
+	<p>
+		<%= f.label :backline %>
+		<%= f.text_field :backline , :id => "b"%>
+	</p>
+	<p>
+		<%= f.label :pagamento %>
+		<%= f.text_field :pagamento , :id => "p" %>
+	</p>
+	<p>
+		<%= f.label :capacita %>
+		<%= f.text_field :capacita, :id => "c" %>
+	</p>
+	<p>
+		<%= f.label :genere %>
+		<%= f.text_field :genere , :id => "g" %>
+	</p>
+	<p>
+		<%= f.label :telefono %>
+		<%= f.text_field :telefono , :id => "t" %>
+	</p>
+	<p>
+		<%= f.label :citta %>
+		<%= f.text_field :citta , :id => "city"%>
+	</p>
+
+    <%= f.submit  %>
+    <div id="foo" data-lat="<%= @l %>"></div>
+    <div id="bomba" data-lat="<%= @c %>"></div>
+<% end %>
+
+<script>
+ $( "form" ).submit(function( event ) {
+ 	var l = $("#foo").data("lat");
+    if(l.includes(document.getElementById("nl").value)==false) {
+         return; }
+     else {
+		event.preventDefault();
+		alert("Locale già esistente");
+		window.location.reload(); }
+ });
+ $( "form" ).submit(function( event ) {
+ 	
+ 	var c = $("#bomba").data("lat");
+ 	
+	if(c.includes(document.getElementById("city").value)==true) {
+         return; }
+     else {
+		event.preventDefault();
+		alert("Devi prima registrare questa città"); 
+		window.location.reload();}	
+ });
+ $( "form" ).submit(function( event ) {
+ 	
+ 	if(document.getElementById("c").value!="") {
+         return; }
+     else {
+		event.preventDefault();
+		alert("La capacità non può essere vuota"); 
+		window.location.reload();}	
+ });
+ $( "form" ).submit(function( event ) {
+ 	
+ 	if(document.getElementById("i").value!="") {
+         return; }
+     else {
+		event.preventDefault();
+		alert("L'indirizzo non può essere vuoto"); 
+	window.location.reload();}	
+ });
+ $( "form" ).submit(function( event ) {
+ 	
+ 	if(document.getElementById("b").value!="") {
+         return; }
+     else {
+		event.preventDefault();
+		alert("La backline non può essere vuota"); 
+	window.location.reload();}	
+ });
+ $( "form" ).submit(function( event ) {
+ 	
+ 	if(document.getElementById("p").value!="") {
+         return; }
+     else {
+		event.preventDefault();
+		alert("Il pagamento non può essere vuoto"); 
+	window.location.reload();}	
+ });
+ $( "form" ).submit(function( event ) {
+ 	
+ 	if(document.getElementById("g").value!="") {
+         return; }
+     else {
+		event.preventDefault();
+		alert("Il genere non può essere vuoto"); 
+	window.location.reload();}	
+ });
+ $( "form" ).submit(function( event ) {
+ 	
+ 	if(document.getElementById("t").value!="") {
+         return; }
+     else {
+		event.preventDefault();
+		alert("Il telefono non può essere vuoto"); 
+	window.location.reload();}	
+ });
+</script>

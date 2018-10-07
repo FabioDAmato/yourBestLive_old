@@ -1,0 +1,17 @@
+<h3>Nome locale: <%= @locale.nlocale %><br/> </h3>
+
+<% @locale.images.each do |image| %>
+	<div style="width:300px; height:300px;">
+		<%= image_tag(image, style:'width: 100%; height: auto') %>
+	</div>
+<% end %>
+
+
+<h3>Indirizzo: <%= @locale.indirizzo %> <br/> </h3>
+<h3>Backline: <%= @locale.backline %> <br/> </h3>
+<h3>Pagamento: <%= @locale.pagamento %> $ <br/> </h3>
+<h3>Capacità: <%= @locale.capacita %> persone<br/> </h3>
+<h3>Genere: <%= @locale.genere %> <br/> </h3>
+<h3>Telefono: <%= @locale.telefono %> <br/> </h3>
+
+<%= image_tag @map %>

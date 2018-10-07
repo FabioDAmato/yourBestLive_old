@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YourBestLive</title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet"> 
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+
+  </head>
+
+  <body>
+     <nav>
+        <div class="nav-wrapper">
+          <a href="http://localhost:3000/" class="brand-logo">YourBestLive</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+            <% if current_user.try(:admin?) %>
+              <li><%= link_to  "Admin Panel", admin_page_path %></li>
+            <% end %>
+
+            
+
+            <% if user_signed_in? %>
+              <li> <%= link_to "Locale più vicino", 'vicino/index' %> </li>
+              <li> <%= link_to  "Profilo", edit_user_registration_path %></li>
+              <li> <%= link_to "Esci", destroy_user_session_path, method: :delete  %>
+            <% else %>
+              <li><%= link_to "Login", user_session_path() %></li>
+            <% end %>  
+
+          </ul>
+        </div>
+      </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> 
+
+    <div class="container"> 
+      <%= yield %>
+    </div> 
+  </body>
+</html>

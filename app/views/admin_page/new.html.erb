@@ -1,0 +1,55 @@
+<select id="user_select">
+    <option></option>
+    </select>
+ 
+<%= form_for @user, :url => { :action => "up" }, :html => { :method => "put" } do |f| %>
+<%= f.submit 'Conferma', :name => "join" %>
+<input type="hidden" id="hidden" name="bo" value="no" />
+<% end %>
+
+<select id="local_select">
+    <option></option>
+    </select>
+ 
+<%= form_for @local, :url => { :action => "loc" }, :html => { :method => "put" } do |f| %>
+<%= f.submit 'Conferma', :name => "join" %>
+<input type="hidden" id="hidden_l" name="bo_l" value="no" />
+<% end %>
+
+<%= form_for :anything, :url => { :action => "suspend" }, :html => { :method => "put" } do |f| %>
+<%= f.submit 'Sospendi sito', :name => "join" %>
+<% end %>
+
+<script>
+
+
+
+var options = <%= @u.inspect.html_safe %>;
+$('#user_select').empty();
+$.each(options, function(i, p) {
+    $('#user_select').append($('<option></option>').val(p).html(p));
+});
+
+$('#user_select').change(user_f);
+
+  function user_f(){
+  		
+  document.getElementById("hidden").value = this.value;
+  }
+
+
+var options = <%= @l.inspect.html_safe %>;
+$('#local_select').empty();
+$.each(options, function(i, p) {
+    $('#local_select').append($('<option></option>').val(p).html(p));
+});
+
+$('#local_select').change(local_f);
+
+  function local_f(){
+  		
+  document.getElementById("hidden_l").value = this.value;
+  }
+
+</script>
+ 

@@ -1,0 +1,44 @@
+<div id="titolo_citta_index"> 
+	<h2>Lista delle città </h2> 
+</div>
+
+<% @citta.each do |c| %>
+<div class="row" id="grid-head">
+    <div class="col s12 m6">
+      <div class="grid-element">
+        <div class="card">
+          <% if c.image.attached? %>
+		  	<%= image_tag(c.image)  %>
+		  <% end %>
+          <div class="card-image">
+            <h1> <%= c.nomecity %> </h1>
+          </div>
+          <div class="card-content">
+            <%= link_to "Vai ai locali", :controller => "locali", :action => "index", :citta => c.nomecity %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<% end %>
+
+<style>
+.app-fab--absolute {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media(min-width: 1024px) {
+   .app-fab--absolute {
+    bottom: 3.5rem;
+    right: 3.5rem;
+  }
+}
+</style>
+
+<button class="mdc-fab app-fab--absolute" aria-label="Favorite"
+onclick="window.location='/citta/new';" /> 
+  <span class="material-icons mdc-fab__icon">add</span>
+  <span class="mdc-fab-container-color($red)"></span>
+</button>

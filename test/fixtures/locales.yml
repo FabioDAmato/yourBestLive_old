@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nlocale: MyString
+  indirizzo: MyString
+  backline: MyString
+  pagamento: 1
+  capacita: 1
+  genere: MyString
+  telefono: MyString
+  citta: MyString
+
+two:
+  nlocale: MyString
+  indirizzo: MyString
+  backline: MyString
+  pagamento: 1
+  capacita: 1
+  genere: MyString
+  telefono: MyString
+  citta: MyString

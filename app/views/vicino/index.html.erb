@@ -1,0 +1,7 @@
+<h1>Il locale più vicino alla tua posizione è:</h1>
+
+<h3> Nome locale: <%= link_to @min_locale.nlocale, locali_path(id: @min_locale.id), :action => "show" %> </h3>
+<h3>Distanza: <%= @min_dist %> <br/> </h3>
+<h3>Tempo per arrivarci: <%= @min_time %> <br/> </h3>
+
+<h3>Altri locali: <%= @array %> <br/> </h3>
