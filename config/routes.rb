@@ -11,9 +11,10 @@ Rails.application.routes.draw do
 
  get '/admin_page', to: 'admin_page#new' 
  get '/users/admin_page', to: 'admin_page#new' 
- put 'admin_page/up', to: 'admin_page#up'
- put 'admin_page/loc', to: 'admin_page#loc'
- put 'admin_page/suspend', to: 'admin_page#suspend'
+ get 'admin_page/up', to: 'admin_page#up'
+ get 'admin_page/loc', to: 'admin_page#loc'
+ get 'admin_page/del', to: 'admin_page#del'
+ get 'admin_page/suspend', to: 'admin_page#suspend'
  get '/profilo', to: 'profilo#index'
 
 

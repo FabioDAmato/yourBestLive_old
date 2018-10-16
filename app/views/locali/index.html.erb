@@ -1,54 +1,66 @@
 <h1>Lista locali</h1>
 
-<div class="columns border-top">
-
-	<div class="column is-2 bg-light">
-	    <div class="pl3 pr1">
-	      	<%= form_tag locali_index_url, :method => 'get' do %>
-				<%= text_field_tag :search, params[:search], :placeholder => "Ricerca locale"%>
-				<%= text_field_tag :citta, @citta, :placeholder => "Ricerca città del locale"%>
-				<%= submit_tag "Ricerca" %>
-			<% end %>
+<div class="row">
+	<%= form_tag locali_index_url, :method => 'get' do %>
+	<div class="row">
+		<div class="input-field col s4">
+			<%= text_field_tag :search, params[:search], id: "search-locale", :class => "search-bar" %>
+			<label for="search-locale">Ricerca il nome del locale</label>
 	    </div>
-	</div>
+	    <div class="input-field col s4">
+			<%= text_field_tag :citta, @citta, id: "search-city" , :class => "search-bar"%>
 
-	<div class="column is-9 pl6">
-		<% @locale.each do |l|  %>
-		<div class="columns border-bottom pt4">
-	    	<div class="column is-1">
-	    		<% if l.images.attached? %>
-		        	<%= image_tag(l.images[0], style:'width: 100; height: 100')  %>
-		        <% end %>
-		    </div>
-			<div class="column is-8">
-			    <h3 class="title is-4 index-title"><%= l.nlocale %></h3>
-			    <ul><p> <%= l.indirizzo %> </p></ul>
-			    <div class="pv2 f6">
-			        <%= link_to "Vai ai dettagli", locali_path(id: l.id), :action => "show" %>
-			    </div>
-			</div>
-	    </div>
-	    <% end %>
+			<% if @citta.present? %>
+		    <label for="search-city" class="active">Ricerca la città del locale</label>
+		  <% else %>
+		    <label for="search-city">Ricerca la città del locale</label>
+		  <% end %>
+		</div>
+
+		<button type="submit" value="Ricerca" class="waves-effect waves-light btn-large red darken-4" style="float: right;">Ricerca
+			<i class="material-icons right">search</i>
+		</button>
 	</div>
+	<% end %>
 </div>
 
-<style>
-.app-fab--absolute {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-}
+<% @locale.each do |l| %>
+  <div class="row" id="grid-head">
+      <div class="col s16 m6">
+        <div class="grid-element">
+          <div class="card">
+            <div class="card-image">
+            <% if l.images.attached? %>
+		          <%= image_tag l.images[0], :class => "citta-image" %>
+		        <% end %>
+            <span class="card-title"><%= l.nlocale %></span>
+            </div>
+            <div class="card-content">
+           		<%= l.indirizzo %>
+            </div>
+            <div class="card-action">
+              <%= link_to "Vai ai dettagli", locali_path(id: l.id), :action => "show" %>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <% end %>
 
-@media(min-width: 1024px) {
-   .app-fab--absolute {
-    bottom: 3.5rem;
-    right: 3.5rem;
+<div class="fixed-action-btn" onclick="loggato()">
+    <a class="btn-floating btn-large" style="background-color: rgb(136, 28, 33);">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+</div>
+
+<script>
+  function loggato() {
+    var x= ('<%=user_signed_in?%>' == 'true');
+    if (x) {
+      window.location.replace('/locali/new');
+    } else {
+      M.toast({html: "Effettua l'accesso per registrare un locale"}); 
+    }
   }
-}
-</style>
-
-<button class="mdc-fab app-fab--absolute" aria-label="Favorite"
-onclick="window.location='/locali/new';" /> 
-  <span class="material-icons mdc-fab__icon">add</span>
-  <span class="mdc-fab-container-color($red)"></span>
-</button>
+</script>

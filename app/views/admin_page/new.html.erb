@@ -1,55 +1,38 @@
-<select id="user_select">
-    <option></option>
-    </select>
- 
-<%= form_for @user, :url => { :action => "up" }, :html => { :method => "put" } do |f| %>
-<%= f.submit 'Conferma', :name => "join" %>
-<input type="hidden" id="hidden" name="bo" value="no" />
-<% end %>
+<div class="container">
+  <h1>Pagina Admin</h1>
 
-<select id="local_select">
-    <option></option>
-    </select>
- 
-<%= form_for @local, :url => { :action => "loc" }, :html => { :method => "put" } do |f| %>
-<%= f.submit 'Conferma', :name => "join" %>
-<input type="hidden" id="hidden_l" name="bo_l" value="no" />
-<% end %>
+  <h5 style="font-weight: bolder;">Inserisci l'username da nominare/rimuovere admin </h5>
+  <%= form_tag admin_page_up_path, :method => 'get' do %>
+  <div class="row">
+    <div class="input-field col s10">
+      <%= text_field_tag :utente, params[:utente], id: "admin-utente", :class => "search-bar" %>
+      <label for="admin-utente">Inserisci l'username utente a cui modificare il ruolo</label>
+    </div>
+    <button type="submit" value="Ricerca" class="waves-effect waves-light btn-large red darken-4" style="float: right;">Modifica</button>
+  </div>
+  <% end %>
 
-<%= form_for :anything, :url => { :action => "suspend" }, :html => { :method => "put" } do |f| %>
-<%= f.submit 'Sospendi sito', :name => "join" %>
-<% end %>
-
-<script>
-
-
-
-var options = <%= @u.inspect.html_safe %>;
-$('#user_select').empty();
-$.each(options, function(i, p) {
-    $('#user_select').append($('<option></option>').val(p).html(p));
-});
-
-$('#user_select').change(user_f);
-
-  function user_f(){
-  		
-  document.getElementById("hidden").value = this.value;
-  }
+  
+  <h5 style="font-weight: bolder;">Inserisci l'username dell'utente da eliminare </h5>
+  <%= form_tag admin_page_del_path, :method => 'get' do %>
+  <div class="row">
+    <div class="input-field col s10">
+      <%= text_field_tag :elimina, params[:elimina], id: "utente-eliminare", :class => "search-bar" %>
+      <label for="utente-eliminare">Inserisci l'username dell'utente da eliminare</label>
+    </div>
+    <button type="submit" value="Ricerca" class="waves-effect waves-light btn-large red darken-4" style="float: right;">Elimina</button>
+  </div>
+  <% end %>
 
 
-var options = <%= @l.inspect.html_safe %>;
-$('#local_select').empty();
-$.each(options, function(i, p) {
-    $('#local_select').append($('<option></option>').val(p).html(p));
-});
+  <h5 style="font-weight: bolder;">Inserisci il nome del locale da eliminare </h5>
+  <%= form_tag admin_page_loc_path, :method => 'get' do %>
+  <div class="row">
+    <div class="input-field col s10">
+      <%= text_field_tag :locale, params[:locale], id: "locale-eliminare", :class => "search-bar" %>
+      <label for="locale-eliminare">Inserisci il nome del locale da eliminare</label>
+    </div>
+    <button type="submit" value="Ricerca" class="waves-effect waves-light btn-large red darken-4" style="float: right;">Elimina</button>
+  </div>
+  <% end %>
 
-$('#local_select').change(local_f);
-
-  function local_f(){
-  		
-  document.getElementById("hidden_l").value = this.value;
-  }
-
-</script>
- 

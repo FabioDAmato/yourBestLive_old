@@ -1,44 +1,39 @@
 <div id="titolo_citta_index"> 
 	<h2>Lista delle città </h2> 
-</div>
-
-<% @citta.each do |c| %>
-<div class="row" id="grid-head">
-    <div class="col s12 m6">
-      <div class="grid-element">
-        <div class="card">
-          <% if c.image.attached? %>
-		  	<%= image_tag(c.image)  %>
-		  <% end %>
-          <div class="card-image">
-            <h1> <%= c.nomecity %> </h1>
-          </div>
-          <div class="card-content">
-            <%= link_to "Vai ai locali", :controller => "locali", :action => "index", :citta => c.nomecity %>
+  <% @citta.each do |c| %>
+  <div class="row" id="grid-head">
+      <div class="col s16 m6">
+        <div class="grid-element">
+          <div class="card">
+            <div class="card-image">
+            <% if c.image.attached? %>
+      		  	<%= image_tag c.image, :class => "citta-image" %>
+            <% end %>
+            <span class="card-title"><%= c.nomecity %></span>
+            </div>
+            <div class="card-content">
+              <%= link_to "Vai ai locali", :controller => "locali", :action => "index", :citta => c.nomecity %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+  </div>
+  <% end %>
+
+  <div class="fixed-action-btn" onclick="loggato()">
+    <a class="btn-floating btn-large" style="background-color: rgb(136, 28, 33);">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
 </div>
-<% end %>
 
-<style>
-.app-fab--absolute {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-}
-
-@media(min-width: 1024px) {
-   .app-fab--absolute {
-    bottom: 3.5rem;
-    right: 3.5rem;
+<script>
+  function loggato() {
+    var x= ('<%=user_signed_in?%>' == 'true');
+    if (x) {
+      window.location.replace('/citta/new');
+    } else {
+      M.toast({html: "Effettua l'accesso per registrare una città"}); 
+    }
   }
-}
-</style>
-
-<button class="mdc-fab app-fab--absolute" aria-label="Favorite"
-onclick="window.location='/citta/new';" /> 
-  <span class="material-icons mdc-fab__icon">add</span>
-  <span class="mdc-fab-container-color($red)"></span>
-</button>
+</script>

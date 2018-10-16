@@ -1,12 +1,34 @@
-<%= form_for @citta, url:{action: "create"} do |f| %>
-	<p>
-		<%= f.label "Nome città:" %>
-		<%= f.text_field :nomecity %>
-	</p>
-	<p>
-		<%= f.label :image %>
-		<%= f.file_field :image %>
-	</p>
+<div class="container" style="text-align: center;">
+	<h1 style="margin-bottom: 10px">Aggiungi città</h1>
+	<div style="text-align: left;">
+	<%= form_for @citta, url:{action: "create"},:html=> {:id => 'form'} do |f| %>
+		<p>
+			<%= f.label "Nome città:" %>
+			<%= f.text_field :nomecity,  :id => "nl", required: true %>
+		</p>
+		<p>
+			<%= f.label :image %>
+			<%= f.file_field :image,  required: true, accept:'image/*' %>
+		</p>
+		</div>
 
-    <%= f.submit  %>
-<% end %>
+		<div id="foo" data-lat="<%= @c %>"></div>
+
+	   	<button type="submit" class="waves-effect waves-light btn-large red darken-4">Aggiungi Città</button>
+
+	<% end %>
+
+
+</div>
+
+<script>
+ $( "form" ).submit(function( event ) {
+ 	var c = $("#foo").data("lat");
+    if(c.includes(document.getElementById("nl").value)==false) {
+         return; }
+     else {
+		event.preventDefault();
+		M.toast({html: "Città già esistente"});
+		}
+ });
+</script>

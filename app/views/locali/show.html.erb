@@ -1,17 +1,61 @@
-<h3>Nome locale: <%= @locale.nlocale %><br/> </h3>
+<div style="text-align: center;">
+	<h1 style="font-weight: bolder;" ><%= @locale.nlocale %></h1>
+	<div class="divider" style="margin-left: 50px; margin-right: 50px; margin-bottom: 10px"></div>
 
-<% @locale.images.each do |image| %>
-	<div style="width:300px; height:300px;">
-		<%= image_tag(image, style:'width: 100%; height: auto') %>
+	<%= image_tag @map %>
+	<div class="riga" style="text-align: center;">
+	  <div class="col1" style="width: 50%; float: left;" >
+	  	<dl>
+	  		<div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+		    <h3 style="font-weight: bolder;">Indirizzo:</h3>
+		    <h5><%= @locale.indirizzo %> </h5>
+		    <div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+
+		    <h3 style="font-weight: bolder;">Backline:</h3>
+		    <h5><%= @locale.backline %></h5>
+		    <div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+
+		    <h3 style="font-weight: bolder;">Genere:</h3>
+		    <h5><%= @locale.genere %></h5>
+		    <div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+	   	</dl>
+	   	</div>
+	   	<div class="col2" style="width: 50%; float: left;">
+	  	<dl>
+	  		<div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+		    <h3 style="font-weight: bolder;">Telefono:</h3>
+		    <h5><%= @locale.telefono %> </h5>
+		    <div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+
+		    <h3 style="font-weight: bolder;">Pagamento:</h3>
+		    <h5><%= @locale.pagamento %></h5>
+		    <div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+
+		    <h3 style="font-weight: bolder;">Capacità:</h3>
+		    <h5><%= @locale.capacita %></h5>
+	   		<div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+	   	</dl>
+	   	</div>
 	</div>
-<% end %>
+	<br/>
+ 	<h3 style="font-weight: bolder;">Galleria foto del locale</h3>
+	<% @locale.images.each do |image| %>
+	<div class="row" id="grid-head">
+	    <div class="col s16 m6">
+	        <div class="grid-element">
+	    		<div class="material-placeholder" >
+					<img class="materialboxed responsive-img z-depth-1"style="width: 350px; height: 200px" src= <%= url_for(image) %> >
+				</div>
+		    </div>
+	 	</div>
+	</div>
+	<% end %>
+
+</div>
 
 
-<h3>Indirizzo: <%= @locale.indirizzo %> <br/> </h3>
-<h3>Backline: <%= @locale.backline %> <br/> </h3>
-<h3>Pagamento: <%= @locale.pagamento %> $ <br/> </h3>
-<h3>Capacità: <%= @locale.capacita %> persone<br/> </h3>
-<h3>Genere: <%= @locale.genere %> <br/> </h3>
-<h3>Telefono: <%= @locale.telefono %> <br/> </h3>
-
-<%= image_tag @map %>
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+</script>

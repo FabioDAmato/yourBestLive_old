@@ -22,13 +22,15 @@ describe CittaController , :type => :controller do
         end
     end
 
-    describe 'get show' do
-        context "user request a city in database" do
+
+
+describe 'get show' , :type => :controller do
+        context "user request a drum in database" do
             before do
-                @citta = double(:city, id: 144)
-                @local = double(:local)
+                @citta = FactoryBot.create(:city)
+                    
             end
-            it "makes the city selected available" do
+            it "makes the cityselected available" do
                 #Arrange
                 allow(City).to receive(:find) { @citta }
                 #Act
@@ -39,16 +41,20 @@ describe CittaController , :type => :controller do
         end
     end
 
-    describe 'get new' do
+
+
+describe 'get new' do
         context 'user logged in' do
-            
+            before do
+                @user = FactoryBot.create(:user)
+                sign_in @user
+            end
             it "should create an object to initialize the template fields" do
                 #Act
                 get :new
                 #Assert
                 expect(assigns(:citta)).not_to eq(nil)
-                
-            end
+            end 
             
             it "should select the new template for rendering" do
                 #Act
@@ -58,9 +64,5 @@ describe CittaController , :type => :controller do
             end
         end
     end
-end
+end 
 
-
-
-
-        

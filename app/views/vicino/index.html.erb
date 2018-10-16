@@ -1,7 +1,43 @@
-<h1>Il locale più vicino alla tua posizione è:</h1>
+<h1>Locale più vicino</h1>
 
-<h3> Nome locale: <%= link_to @min_locale.nlocale, locali_path(id: @min_locale.id), :action => "show" %> </h3>
-<h3>Distanza: <%= @min_dist %> <br/> </h3>
-<h3>Tempo per arrivarci: <%= @min_time %> <br/> </h3>
 
-<h3>Altri locali: <%= @array %> <br/> </h3>
+<div class="row" id="grid-head" style="display: inline-block;">
+      <div class="col s6">
+        <div class="grid-element-vicino">
+          <div class="card">
+          	<div class="card sticky-action">
+			    <div class="card-image waves-effect waves-block waves-light">
+			    <% if @min_locale.images.attached? %>
+			      <%= image_tag @min_locale.images[0], :class => "activator", :style => "width: 100%; height: 300px; object-fit: cover;" %>
+			    <% end %>
+			    </div>
+			    <div class="card-content" style="padding: 20px">
+			      <span class="card-title activator grey-text text-darken-4"><%= @min_locale.nlocale %><i class="material-icons right">access_time</i></span>
+			    </div>
+			    <div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4"><%= @min_locale.nlocale %><i class="material-icons right">close</i></span>
+			      <p>Il locale più vicino alla tua via è il locale: <%= @min_locale.nlocale %></p>
+			      <p>Questo si trova all'indirizzo: <%= @min_locale.indirizzo %></p>
+			      <p>Nella città di: <%= @min_locale.citta %></p>
+			      <p>E' ad una distanza di: <%= @min_dist %></p>
+			      <p>Il tempo per arrivarci è di: <%= @min_time %> </p>
+			    </div>
+			    <div class="card-action">
+              		<%= link_to "Vai ai dettagli", locali_path(id: @min_locale.id), :action => "show" %>
+            	</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col s6" style="display: inline-block; width: 40%; vertical-align: top; text-align: center; margin-left: 50px">
+	<div style="width: auto;">
+		<h4>Altri locali:</h4>
+		<div class="divider" style="margin-left: 100px; margin-right: 100px"></div>
+	</div>
+
+	<%- @array.each do |l| %>
+		<p style="font-size: 20px"> <%= l %> </p>
+	<% end %>
+</div>

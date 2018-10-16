@@ -1,5 +1,3 @@
-
-
 @import 'materialize';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons"; 
 
@@ -22,7 +20,19 @@
 }
 
 .grid-element {
-    width: 350px; height: 400px;
+    width: 350px; height: auto;
+}
+
+.grid-element-vicino {
+    width: 600px; height: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-image{
+    height: auto;
+    object-fit: contain;
 }
 
 .row#grid-head {
@@ -40,20 +50,18 @@ div.centre {
   display: block;
   margin-left: auto;
   margin-right: auto;
-
-
 }
 
 div.a {
     text-align: center;
     h1, h2 {
-    display: inline;
-} }
+    display: inline;}
+} 
 
 
 div.b {
     text-align: center;
-     }
+}
 
 body{
     margin: 0;
@@ -204,3 +212,62 @@ body{
 ::-moz-input-placeholder{
    color: rgba(255,255,255,0.6);
 } 
+
+.btn-floating btn-large red {
+     background: rgb(136, 28, 33)
+}
+
+.toast-container {
+    color: rgb(136, 28, 33)
+}
+
+.toast {
+    background-color: rgb(136, 28, 33)
+}
+
+.citta-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.vicino-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.someclass i {
+  display: inline;
+}
+.someclass .form-control {
+  display: inline;
+  width: 95%;
+}
+
+.row {
+    vertical-align: middle;
+}
+
+.btn {
+    background-color: rgb(136, 28, 33);
+}
+.btn:hover {
+  background-color: rgb(136, 28, 33);
+}
+
+.btn:focus{ 
+  background-color: rgb(136, 28, 33);
+}
+
+.input-field input:focus + label {
+   color: rgb(136, 28, 33) !important;
+ }
+
+.input-field input:focus {
+   border-bottom: 1px solid rgb(136, 28, 33) !important;
+   box-shadow: 0 1px 0 0 rgb(136, 28, 33) !important
+ }
+
+ .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    color: rgb(136, 28, 33);
+}
