@@ -1,0 +1,49 @@
+<%= link_to "add new record", {controller: "home", action: "new"} %>
+
+<table border= "1" width="20%">
+	<thead>
+		<th> Nome Locale </th>
+	 	<th> Indirizzo</th>
+	 	<th> Backline</th>
+	 	<th> Pagamento </th>
+	 	<th> Capacita</th>
+	 	<th> Genere</th>
+	 	<th> Telefono </th>
+
+ 	</thead>
+ 	
+ 	<tbody>
+ 		<%= @locale.each do |l| %>
+ 			<tr>
+ 				<td>
+ 					<%= l.nlocale %>
+ 				</td>
+
+ 				<td>
+ 					<%= l.indirizzo %>
+ 				</td>
+
+ 				<td>
+ 					<%= l.backline %>
+ 				</td>
+
+ 				<td>
+ 					<%= l.pagamento %>
+ 				</td>
+
+ 				<td>
+ 				 	<%= l.capacita %>
+ 				</td>
+
+ 				<td>
+ 					<%= l.genere %>
+ 				</td>
+
+ 				<td>
+ 					<%= l.telefono %>
+ 				</td>
+ 			</tr>
+ 			
+ 		<% end %>
+	</tbody>
+</table>

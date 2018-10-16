@@ -8,7 +8,10 @@ one:
   capacita: 1
   genere: MyString
   telefono: MyString
+<<<<<<< HEAD
   citta: MyString
+=======
+>>>>>>> 015c8ea324514c24ae5084ddfb046d7fc20b71c3
 
 two:
   nlocale: MyString
@@ -18,4 +21,7 @@ two:
   capacita: 1
   genere: MyString
   telefono: MyString
+<<<<<<< HEAD
   citta: MyString
+=======
+>>>>>>> 015c8ea324514c24ae5084ddfb046d7fc20b71c3

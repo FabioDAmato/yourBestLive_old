@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   
   get 'vicino/index'
   #devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -29,4 +30,9 @@ Rails.application.routes.draw do
   
 end
 
+=======
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :home
+  resources :cities
+>>>>>>> 015c8ea324514c24ae5084ddfb046d7fc20b71c3
 end

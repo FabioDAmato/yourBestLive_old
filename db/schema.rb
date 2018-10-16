@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_10_06_153543) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -38,6 +39,9 @@ ActiveRecord::Schema.define(version: 2018_10_06_153543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 2018_09_23_133506) do
+>>>>>>> 015c8ea324514c24ae5084ddfb046d7fc20b71c3
 
   create_table "locales", force: :cascade do |t|
     t.string "nlocale"
@@ -47,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_10_06_153543) do
     t.integer "capacita"
     t.string "genere"
     t.string "telefono"
+<<<<<<< HEAD
     t.string "citta"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,6 +74,10 @@ ActiveRecord::Schema.define(version: 2018_10_06_153543) do
     t.string "via"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+=======
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> 015c8ea324514c24ae5084ddfb046d7fc20b71c3
   end
 
 end

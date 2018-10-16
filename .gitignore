@@ -29,6 +29,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+<<<<<<< HEAD
 
 # Ignore application configuration
 /config/application.yml
+=======
+>>>>>>> 015c8ea324514c24ae5084ddfb046d7fc20b71c3

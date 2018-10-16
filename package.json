@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "a",
+=======
+  "name": "project",
+>>>>>>> 015c8ea324514c24ae5084ddfb046d7fc20b71c3
   "private": true,
   "dependencies": {}
 }

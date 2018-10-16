@@ -1,0 +1,10 @@
+<%= form_for @locale, url:{action: "create"} do |f| %>
+	<%= render partial:"home/form", :locals=>{:f => f} %>
+
+	<p>
+		<%= f.submit("crea locale") %>
+	</p>
+
+
+<% end %> 
+

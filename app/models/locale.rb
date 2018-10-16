@@ -1,4 +1,5 @@
 class Locale < ApplicationRecord
+<<<<<<< HEAD
   
   validates_presence_of :nlocale
   validates_presence_of :indirizzo
@@ -20,4 +21,6 @@ def self.search(search)
 		end
 	end
 	
+=======
+>>>>>>> 015c8ea324514c24ae5084ddfb046d7fc20b71c3
 end
